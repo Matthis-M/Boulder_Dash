@@ -1,0 +1,43 @@
+	Les objets:
+- bonhomme
+- monstres
+- rochers
+- diamants
+- murs
+- terre
+- sortie
+- pt de départ
+- sortie
+- blocs vides (défaut?)
+
+
+***************************************************	
+	Les interractions:
+- tuer monstres
+   => explosion diamants
+
+
+***************************************************
+	Les actions réalisées:
+- déplacer les rochers (droite; gauche)
+- déplacer bonhomme (haut; bas; droite; gauche)
+- détruire terre 
+- rammasser diaments
+- sortir
+- déplacements monstres
+
+
+***************************************************
+	Les actions subies:
+- écrasé par rochers
+   => mort
+- écrasé pardiaments
+   => mort
+- déplacements monstres
+
+
+***************************************************
+	Les initialisations:
+- positions objet
+- nombre de diamants
+- timer

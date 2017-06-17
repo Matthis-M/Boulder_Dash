@@ -1,0 +1,67 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: Level
+#------------------------------------------------------------
+
+CREATE TABLE `Level`(
+        IDLevel   int (11) Auto_increment  NOT NULL ,
+        LevelName Char (25) ,
+        PRIMARY KEY (IDLevel )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Objects
+#------------------------------------------------------------
+
+CREATE TABLE `Objects`(
+        IDObjects   int (11) Auto_increment  NOT NULL ,
+        ObjectsName Char (25) ,
+        PRIMARY KEY (IDObjects )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Character
+#------------------------------------------------------------
+
+CREATE TABLE `Character`(
+        IDCharacter   int (11) Auto_increment  NOT NULL ,
+        CharacterName Char (25) ,
+        PRIMARY KEY (IDCharacter )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: composé
+#------------------------------------------------------------
+
+CREATE TABLE `compose`(
+        PositionX Int ,
+        PositionY Int ,
+        IDLevel   Int NOT NULL ,
+        IDObjects Int NOT NULL ,
+        PRIMARY KEY (IDLevel ,IDObjects )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: rempli
+#------------------------------------------------------------
+
+CREATE TABLE `rempli`(
+        CharacterPositionX Int ,
+        CharacterPositionY Int ,
+        IDLevel            Int NOT NULL ,
+        IDCharacter        Int NOT NULL ,
+        PRIMARY KEY (IDLevel ,IDCharacter )
+)ENGINE=InnoDB;
+
+ALTER TABLE compose ADD CONSTRAINT FK_compose_IDLevel FOREIGN KEY (IDLevel) REFERENCES Level(IDLevel);
+ALTER TABLE compose ADD CONSTRAINT FK_compose_IDObjects FOREIGN KEY (IDObjects) REFERENCES Objects(IDObjects);
+ALTER TABLE rempli ADD CONSTRAINT FK_rempli_IDLevel FOREIGN KEY (IDLevel) REFERENCES Level(IDLevel);
+ALTER TABLE rempli ADD CONSTRAINT FK_rempli_IDCharacter FOREIGN KEY (IDCharacter) REFERENCES Character(IDCharacter);
