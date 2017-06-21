@@ -1,0 +1,7 @@
+INSERT INTO Level Values 
+(1, `The Mine`),
+(2, `Iceland`),
+(3, `Desert`),
+(4, `Labyrinth`),
+(5, `Waterworld`),
+(6, `Bonus Level`)

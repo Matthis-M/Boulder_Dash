@@ -1,0 +1,8 @@
+INSERT INTO `Objects` (`IDObjects`, `ObjectsName`) VALUES
+
+(1, `Wall`),
+(2, `Hero`),
+(3, `Boulder`),
+(4, `Diamond`),
+(5, `Dirt`),
+(6, `Enemy`);
