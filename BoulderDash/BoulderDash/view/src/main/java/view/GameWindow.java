@@ -2,7 +2,22 @@ package view;
 
 import java.awt.Color;
 import javax.swing.JFrame;
-		
+
+/**
+ * <h1>This class is inherited from JFrame and configures the parameters of the window.</h1>
+ *
+ * @author Matthis MOYON
+ * @version 1.0
+ */
+
+
+
+/**
+ * There are the different actions of the method :
+ * - Specifies the operation that make the window close. Here it's the right-top exit button.
+ * - Instantiates a new JPanel object named "GameViewPanel".
+ * - Makes the window visible.
+ */
 public class GameWindow extends JFrame {
 
 	public GameWindow() {
@@ -11,14 +26,9 @@ public class GameWindow extends JFrame {
 		this.setSize(340,370);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setResizable(true);
-		
-		
+		this.setResizable(false);
+	
 		GamePanel GameViewPanel = new GamePanel();
-
-		
-		GameViewPanel.setBackground(Color.BLACK);
-		
 		
 		this.setContentPane(GameViewPanel);
 		this.setVisible(true);
