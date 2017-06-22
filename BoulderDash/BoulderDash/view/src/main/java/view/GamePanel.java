@@ -24,7 +24,7 @@ public class GamePanel extends JPanel {
 	private int Y;
 	
 	/**
-	 * The string "imagePath" corresponds to the path of the choosen image.
+	 * The string "imagePath" corresponds to the path of the chosen image.
 	 */
 	private String imagePath;
 	//private String backgroundImg;
