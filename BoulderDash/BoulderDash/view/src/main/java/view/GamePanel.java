@@ -7,15 +7,31 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+/**
+ * <h1>This class inherits from JPanel and constitute the elements that will be displayed on the window.</h1>
+ *
+ * @author Matthis MOYON
+ * @version 1.0
+ */
  
 public class GamePanel extends JPanel {
 	
+	
+	/**
+	 * The ints X and Y in this class correspond to the coordinates of the elements in the table "MAP".
+	 */
 	private int X;
 	private int Y;
 	
-	private String imageName;
+	/**
+	 * The string "imagePath" corresponds to the path of the choosen image.
+	 */
+	private String imagePath;
 	//private String backgroundImg;
 	
+	/**
+	 * This table is used to describe the components of the level. Each int is a type of object (Boulder, Dirt, Hero, ...).
+	 */
 	static int MAP[][] = {{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, 
 			{1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1},
 			{1,5,2,5,5,5,5,5,7,7,7,3,5,5,5,5,5,3,5,1},
@@ -38,7 +54,13 @@ public class GamePanel extends JPanel {
 			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}};
 	
 
-	
+	/**
+	 * The paintComponent method from JComponent is here specialized to load all the images as specified on the map.
+	 * By using a loop, we browse the table in order to check the value in each box
+	 * A "switch case" then modify the imageName attribute dependently on the value found
+	 * to make the image match the type of object (1:Wall, 2:Hero, ...)
+	 * The function g.drawimage then draw the matching image on the JPanel.
+	 */
 	public void paintComponent(Graphics g) {
 		try {
 			
@@ -46,6 +68,9 @@ public class GamePanel extends JPanel {
 			//Image backgroundImg = ImageIO.read(new File("backgroundImg.png"));
 		    //g.drawImage(backgroundImg, 0, 0, this.getWidth(), this.getHeight(), this);
 			
+			/**
+			 * The two loops "while()" are here used to browse all the table.
+			 */
 			
     			X = 0;
     			Y = 0;
@@ -55,47 +80,54 @@ public class GamePanel extends JPanel {
     			while(X != 20) {
     				
     				switch (MAP[Y][X]) {
+    				
+    				/**
+    				 * The "switch case" is here used to modify the imagePath attribute depending of the type of object.
+    				 */
     					case 1 :
-    						imageName = "Wall.png";
+    						imagePath = "Wall.png";
     					break;
     					
     					case 2 :
-    						imageName = "Hero.png";
+    						imagePath = "Hero.png";
     					break;
     					
     					case 3 :
-    						imageName = "Boulder.png";
+    						imagePath = "Boulder.png";
     					break;
     					
     					case 4 :
-    						imageName = "Diamond.png";
+    						imagePath = "Diamond.png";
     					break;
     					
     					case 5 :
-    						imageName = "Dirt.png";
+    						imagePath = "Dirt.png";
     					break;
     					
     					case 6 :
-    						imageName = "Enemy1.png";
+    						imagePath = "Enemy1.png";
     					break;
     					
     					case 7 :
-    						imageName = "EmptyBlock.png";
+    						imagePath = "EmptyBlock.png";
     					break;
     					
     					case 8 :
-    						imageName = "Enemy2.png";
+    						imagePath = "Enemy2.png";
     					break;
     					
     					default :
-    						imageName = "Error.png";
+    						imagePath = "Error.png";
     					break;
     					
     				}
     				
-    				//if(imageName != "Empty") {
-    				Image img = ImageIO.read(new File(imageName));
-    				g.drawImage(img, X*16, Y*16, this);//}
+    				/**
+    				 * The two following methods are used to load the element depending of its path
+    				 * and draw it on the panel depending of its coordinates in the table. 
+    				 */
+    				Image img = ImageIO.read(new File(imagePath));
+    				g.drawImage(img, X*16, Y*16, this);
 
     				X++;
     				
@@ -105,12 +137,12 @@ public class GamePanel extends JPanel {
     			X = 0;
     		}
 		} catch (IOException e){e.printStackTrace();}
-		
-		
 	}
 	
+	/**
+	 * Static method used to check the type of object placed at X and Y positions.
+	 */
 	public static int checkObject(int X, int Y) {
 		return MAP[X][Y];
-		
 	}
 }
