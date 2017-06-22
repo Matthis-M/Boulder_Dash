@@ -25,6 +25,7 @@ public abstract class ExampleDAO extends AbstractDAO {
     	
         final CallableStatement callStatement = prepareCall(sqlGetMap);
         Example example = null;
+        
 
         callStatement.setInt(1, Level);
         if (callStatement.execute()) {
