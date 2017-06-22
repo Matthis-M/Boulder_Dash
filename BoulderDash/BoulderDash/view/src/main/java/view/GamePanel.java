@@ -6,19 +6,19 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+
  
 public class GamePanel extends JPanel {
 	
 	private int X;
 	private int Y;
-	private int T;
-	private int S;
 	
 	private String imageName;
+	//private String backgroundImg;
 	
-	int LevelTest[][] = {{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, 
+	static int MAP[][] = {{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, 
 			{1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1},
-			{1,5,2,5,5,5,5,5,5,5,5,3,5,5,5,5,5,3,5,1},
+			{1,5,2,5,5,5,5,5,7,7,7,3,5,5,5,5,5,3,5,1},
 			{1,3,3,3,5,3,5,5,5,5,5,5,5,4,5,5,5,5,5,1},
 			{1,5,4,5,5,3,5,5,5,5,5,5,5,5,5,5,5,5,5,1},
 			{1,5,5,5,5,5,5,5,5,5,5,5,5,4,5,5,5,5,5,1},
@@ -37,8 +37,16 @@ public class GamePanel extends JPanel {
 			{1,5,5,5,5,5,5,5,5,5,5,5,5,3,5,5,5,5,5,1},
 			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}};
 	
+
+	
 	public void paintComponent(Graphics g) {
 		try {
+			
+			//For a background image
+			//Image backgroundImg = ImageIO.read(new File("backgroundImg.png"));
+		    //g.drawImage(backgroundImg, 0, 0, this.getWidth(), this.getHeight(), this);
+			
+			
     			X = 0;
     			Y = 0;
     		
@@ -46,7 +54,7 @@ public class GamePanel extends JPanel {
     		
     			while(X != 20) {
     				
-    				switch (LevelTest[Y][X]) {
+    				switch (MAP[Y][X]) {
     					case 1 :
     						imageName = "Wall.png";
     					break;
@@ -67,13 +75,27 @@ public class GamePanel extends JPanel {
     						imageName = "Dirt.png";
     					break;
     					
-    					default :
-    						imageName = "Diamond.png";
+    					case 6 :
+    						imageName = "Enemy1.png";
     					break;
+    					
+    					case 7 :
+    						imageName = "EmptyBlock.png";
+    					break;
+    					
+    					case 8 :
+    						imageName = "Enemy2.png";
+    					break;
+    					
+    					default :
+    						imageName = "Error.png";
+    					break;
+    					
     				}
     				
+    				//if(imageName != "Empty") {
     				Image img = ImageIO.read(new File(imageName));
-    				g.drawImage(img, X*16, Y*16, this);
+    				g.drawImage(img, X*16, Y*16, this);//}
 
     				X++;
     				
@@ -83,13 +105,12 @@ public class GamePanel extends JPanel {
     			X = 0;
     		}
 		} catch (IOException e){e.printStackTrace();}
+		
+		
 	}
-    	
-      //Pour une image de fond
-      //g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this)
 	
-	public int getImageId(int X, int Y) {
-		return Y;
+	public static int checkObject(int X, int Y) {
+		return MAP[X][Y];
 		
 	}
 }
