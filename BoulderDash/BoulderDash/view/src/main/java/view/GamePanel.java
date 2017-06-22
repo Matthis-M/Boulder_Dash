@@ -141,6 +141,11 @@ public class GamePanel extends JPanel {
 	
 	/**
 	 * Static method used to check the type of object placed at X and Y positions.
+	 * 
+	 * @param X is one coordinate of the object to check the type.
+	 * @param Y is the other coordinate of the object to check the type.
+	 * 
+	 * @return Return the type of the object.
 	 */
 	public static int checkObject(int X, int Y) {
 		return MAP[X][Y];
