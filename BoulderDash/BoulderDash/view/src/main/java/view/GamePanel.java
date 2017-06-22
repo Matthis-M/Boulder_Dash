@@ -24,7 +24,7 @@ public class GamePanel extends JPanel {
 	private int Y;
 	
 	/**
-	 * The string "imagePath" corresponds to the path of the choosen image.
+	 * The string "imagePath" corresponds to the path of the chosen image.
 	 */
 	private String imagePath;
 	//private String backgroundImg;
@@ -56,6 +56,10 @@ public class GamePanel extends JPanel {
 
 	/**
 	 * The paintComponent method from JComponent is here specialized to load all the images as specified on the map.
+	 * By using a loop, we browse the table in order to check the value in each box
+	 * A "switch case" then modify the imageName attribute dependently on the value found
+	 * to make the image match the type of object (1:Wall, 2:Hero, ...)
+	 * The function g.drawimage then draw the matching image on the JPanel.
 	 */
 	public void paintComponent(Graphics g) {
 		try {
@@ -135,8 +139,13 @@ public class GamePanel extends JPanel {
 		} catch (IOException e){e.printStackTrace();}
 	}
 	
-	/*
+	/**
 	 * Static method used to check the type of object placed at X and Y positions.
+	 * 
+	 * @param X is one coordinate of the object to check the type.
+	 * @param Y is the other coordinate of the object to check the type.
+	 * 
+	 * @return Return the type of the object.
 	 */
 	public static int checkObject(int X, int Y) {
 		return MAP[X][Y];
