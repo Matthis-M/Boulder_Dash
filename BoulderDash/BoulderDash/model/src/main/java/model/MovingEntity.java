@@ -7,7 +7,7 @@ package model;
  * @version 0.1
  */
 
-public abstract class MovingEntity {
+public abstract class MovingEntity extends Entity {
 
 	/**
 	 * Makes the entity move a box upside in the table.
