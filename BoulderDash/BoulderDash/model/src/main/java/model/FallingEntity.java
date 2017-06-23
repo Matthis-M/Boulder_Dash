@@ -7,7 +7,7 @@ package model;
  * @version 0.1
  */
 
-public abstract class FallingEntity extends Entity{
+public abstract class FallingEntity extends MovingEntity{
 
 	/**
 	 * Makes the entity move down if there's nothing beside it.
