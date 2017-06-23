@@ -1,0 +1,4 @@
+As our program wasn't complete enough, the SureFire
+plugin refused to make a report and wrote FAILED 
+whenever we tried to make it work. We're unfortunately in
+the material impossibility of furnishing one to you.

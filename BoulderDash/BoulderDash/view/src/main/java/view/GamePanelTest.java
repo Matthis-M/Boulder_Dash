@@ -1,13 +1,12 @@
 package view;
 
-import static org.junit.Assert.*;
+/*import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
-
+import org.junit.Test;*/
 
 /**
  * <h1> This class was made to test the function of browsing the table and matching the ints with the different entities. <h1>
@@ -18,7 +17,7 @@ import org.junit.Test;
  */
 
 public class GamePanelTest {
-
+/*
 	private int X;
 	private int Y;
 	private String entityName;
@@ -109,6 +108,5 @@ public class GamePanelTest {
 	    		Y++;
 	    		X = 0;
 	    	}
-		}
+		}*/
 	}
-

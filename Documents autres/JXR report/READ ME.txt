@@ -1,0 +1,5 @@
+The JXR report was done with Maven on Eclipse
+with success and no error. However, the add of 
+the report wasn't detected by Github and so
+impossible to load on it. We made this repertory
+apart from the rest to allow you to find it easily.

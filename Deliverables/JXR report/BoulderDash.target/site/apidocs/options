@@ -1,0 +1,24 @@
+-classpath
+'D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/contract/target/classes;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/controller/target/classes;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/model/target/classes;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/view/target/classes;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/main/target/classes;C:/Users/Matthis/.m2/repository/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar'
+-encoding
+'Cp1252'
+-protected
+-sourcepath
+'D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/contract/src/main/java;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/contract/target/generated-sources/annotations;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/controller/src/main/java;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/controller/target/generated-sources/annotations;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/model/src/main/java;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/model/target/generated-sources/annotations;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/view/src/main/java;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/view/target/generated-sources/annotations;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/main/src/main/java;D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/main/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2017. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'boulderdash 0.0.1-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/8/docs/api' 'D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'boulderdash 0.0.1-SNAPSHOT API'
