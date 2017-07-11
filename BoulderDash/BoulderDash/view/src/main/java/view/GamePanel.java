@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import controller.GameController;
 import model.Entity;
 import model.Level;
 
@@ -119,39 +120,39 @@ public class GamePanel extends JPanel implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent k) {
 		int key = k.getKeyCode();
-		//Order userOrder;
+		Order userOrder;
 
 		switch (key) {
 		
 			case KeyEvent.VK_DOWN :
 				
-				//userOrder = (Order.DOWN);
-				//GameController.heroMove(userOrder);
-				//repaint();
+				userOrder = Order.DOWN;
+				GameController.heroMove(userOrder);
+				repaint();
 				System.out.println("bas");
 				break;
 				
 			case KeyEvent.VK_UP:
 
-				//userOrder = (Order.UP);
-				//GameController.heroMove(userOrder);
-				//repaint();
+				userOrder = Order.UP;
+				GameController.heroMove(userOrder);
+				repaint();
 				System.out.println("haut");
 				break;
 				
 			case KeyEvent.VK_RIGHT:
 
-				//userOrder = (Order.RIGHT);
-				//GameController.heroMove(userOrder);
-				//repaint();
+				userOrder = Order.RIGHT;
+				GameController.heroMove(userOrder);
+				repaint();
 				System.out.println("droite");
 				break;
 				
 			case KeyEvent.VK_LEFT:
 				
-				//userOrder = (Order.LEFT);
-				//GameController.heroMove(userOrder);
-				//repaint();
+				userOrder = Order.LEFT;
+				GameController.heroMove(userOrder);
+				repaint();
 				System.out.println("gauche");
 				break;
 				

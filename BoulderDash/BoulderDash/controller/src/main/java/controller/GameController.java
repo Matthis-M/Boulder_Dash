@@ -19,20 +19,20 @@ public class GameController {
 	/**
 	 * A copy of the Map contained in model used to different tests.
 	 */
-	private static Entity BrowsedMAP[][] = Level.getMAP();
-	
 	private static int X;
 	private static int Y;
+	
+	private static int TIME_SLEEP = 30;
+	
 	
 	/**
 	 * A counter of the number of diamonds taken by the Hero.
 	 */
-	private static int diamondCounter = 0;
+	private static int diamondCounter = 10;
 	
 	/**
 	 * A two-values table used to return the coordinates of an entity in various methods.
 	 */
-	private static int[] entityCoordinates = new int[2];
 	
 	public static boolean GameOver = false;
 	
@@ -41,24 +41,29 @@ public class GameController {
 	 */
 	public static int[] heroSelect() {
 
-		resetXandY();
+		int x = 0;
+		int y = 0;
+		
+		int[] entityCoordinates = new int[2];
 
-			while(Y != 20) {
+			while(y != 20) {
 
-				while(X != 20) {
+				while(x != 20) {
 
-					if(BrowsedMAP[Y][X].getType() == "Hero") {
-							entityCoordinates[0] = Y;
-							entityCoordinates[1] = X;
+					if(Level.checkMapObject(y,x) == "Hero") {
+							entityCoordinates[0] = y;
+							entityCoordinates[1] = x;
 						}
 
-					X++;
+					x++;
 				}
 
-				X=0;
-				Y++;
+				x=0;
+				y++;
 			}
 
+			System.out.println(entityCoordinates[0]);
+			System.out.println(entityCoordinates[1]);
 			return entityCoordinates;
 	}
 	
@@ -76,7 +81,6 @@ public class GameController {
 		
 			heroY = heroCoordinates[0];
 			heroX = heroCoordinates[1];
-		
 			
 			switch (userOrder) {
 			
@@ -113,27 +117,44 @@ public class GameController {
 				break;
 				
 				case "Boulder" :
-					System.out.println("not implemented yet");
+					int a = 0, nextEntityX;
+					
+					if(userOrder == Order.RIGHT) {
+						a = 1;
+					}
+					
+					else if (userOrder == Order.LEFT) {
+						a = -1;
+					} else {System.out.println("ERROR");}
+					
+					nextEntityX = checkX + a;
+					
+					if (Level.checkMapObject(checkY, nextEntityX) == "Empty") {
+						moveEntity(checkY, checkX, checkY, nextEntityX);
+						moveEntity(heroY, heroX, checkY, checkX);
+					}
+					System.out.println("Boulder Moved");
 				break;
 				
 				case "Diamond" :
 					moveEntity(heroY, heroX, checkY, checkX);
-					diamondCounter++;
+					diamondCounter--;
+					if(diamondCounter == 0) {
+						System.out.println("------------------- YOU WON !!! -------------------");
+					}
+					
 				break;
 				
-				case "Dirt" :
+				case "Dirt" : case "Empty" :
 					moveEntity(heroY, heroX, checkY, checkX);
 				break;
 				
-				case "Enemy1" :
-					System.out.println("not implemented yet");
+				case "Enemy1" : case "Enemy2" :
+					System.out.println("------------------- YOU DIED !!! -------------------");
+					GameOver = true;
 				break;
 				
-				case "Enemy2" :
-					System.out.println("not implemented yet");
-				break;
-				
-				default :
+				default:
 					System.out.println("ERROR");
 				break;
 			}
@@ -155,22 +176,26 @@ public class GameController {
 	 * The wanted new position in X of the entity
 	 */
 	
-	public static void moveEntity(int actualPositionX, int actualPositionY, int newPositionX, int newPositionY) {
+	public static void moveEntity(int actualPositionY, int actualPositionX, int newPositionY, int newPositionX) {
 		
 		String tempoType;
 		
 		tempoType = Level.checkMapObject(actualPositionY, actualPositionX);
+		System.out.println(tempoType);
 		Level.setMapEntityType(newPositionY, newPositionX, tempoType);
 		Level.setMapEntityHasMoved(newPositionY, newPositionX, true);
+		//Level.MAP[Y][X].getHasMoved();
 		Level.setMapEntityType(actualPositionY, actualPositionX, "Empty");
 	}
 	
-	/**
-	 * A little method used to easily reset variables values.
-	 */
-	private static void resetXandY() {
-		X = 0;
-		Y = 0;
+	public static void gameLoop() {
+		while (GameOver != true) {
+			try {
+				Thread.sleep(TIME_SLEEP);
+			} catch (final InterruptedException ex) {
+				Thread.currentThread().interrupt();
+			}
+			Level.updateMap();
+		}
 	}
 }
-

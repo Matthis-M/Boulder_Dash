@@ -17,7 +17,7 @@ import view.GameWindow;
 
 public abstract class Main {
 	
-	private static int chosenLevel = 1;
+	private static int chosenLevel = 3;
 
 	
     /**
@@ -32,17 +32,8 @@ public abstract class Main {
     	EntityDAO.GenerateDBMap(chosenLevel);
     	Level.createMAP();
     	GameWindow gameWindow = new GameWindow();
-    	GameController gameController = new GameController();
+    	GameController.gameLoop();
     	
-    	/*tempoTable = gameController.heroSelect();
-    	System.out.println(tempoTable[0]);
-    	System.out.println(tempoTable[1]);
-    	
-    	while(GameController.GameOver != false) {
-    		
-    		
-    	}
-    	*/
     	
     }
 }
