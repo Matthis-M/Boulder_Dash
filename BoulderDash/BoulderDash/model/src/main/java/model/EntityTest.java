@@ -37,28 +37,15 @@ public class EntityTest {
 	 */
 	private boolean HasMoved;
 	
-	
-	public EntityTest(int X, int Y, String Type, String imagePath, boolean HasMoved)
-	  {
-	    System.out.println("Creation of the entity with parameters !");
-	    this.X = X;
-	    this.Y = Y;
-	    this.Type = Type;
-	    this.imagePath = imagePath;
-	    this.HasMoved = HasMoved;
-	  }
-	
-	
-	/*
 	public EntityTest()
 	  {
 	    System.out.println("Création d'une entité avec des paramètres !");
 	    this.X = 999;
 	    this.Y = 999;
-	    this.Type = "Default";
-	    this.imagePath = "Default";
+	    this.Type = "Test";
+	    this.imagePath = "Test.png";
 	    this.HasMoved = false;
-	  }*/
+	  }
 	
 	
 	
@@ -84,17 +71,13 @@ public class EntityTest {
 
 	@Test
 	public void test() {
-		X = 1;
-		Y = 1;
-		Type = "Test";
-		imagePath = "Test";
-		HasMoved = false;
-		
-		
-		
-		
-		EntityTest entityTest1 = new EntityTest(X, Y, Type, imagePath, HasMoved);
+				
+		EntityTest entityTest1 = new EntityTest();
 		System.out.println(entityTest1.X);
+		System.out.println(entityTest1.Y);
+		System.out.println(entityTest1.Type);
+		System.out.println(entityTest1.imagePath);
+		System.out.println(entityTest1.HasMoved);
 	}
 	
 }
