@@ -1,6 +1,9 @@
 package model;
 
 import model.dao.EntityDAO;
+
+import javax.management.modelmbean.ModelMBean;
+
 import controller.GameController;
 /**
  * <h1> This class contain the Level map and other information as the number of diamonds needed to end it. <h1>
@@ -135,21 +138,38 @@ public class Level {
 	
 	public static void updateMap(){
 		
+		//System.out.println("updateWorking");
 		int x = 0;
 		int y = 0;
 
 			while(y != 20) {
 
-				while(x != 20 && (MAP[y][x].getHasMoved() != true)) {
+				while(x != 20 /*&& (MAP[y][x].getHasMoved() != true)*/) {
 
 					switch(checkMapObject(y,x)) {
+					
 						case "Boulder" : case "Diamond" :
-							if(Level.checkMapObject(y+1, x) == "EmptyBlock") {
+							//System.out.println("updateWorking");
+							
+							if(checkMapObject(y+1, x) == "Empty" || checkMapObject(y+1, x) == "Enemy1" || checkMapObject(y+1, x) == "Enemy2") {
 								GameController.moveEntity(y,x,y+1,x);
 							}
 							
+							else if(checkMapObject(y+1, x) != "Empty" && checkMapObject(y, x+1) == "Empty" && (checkMapObject(y+1, x+1) == "Empty" || checkMapObject(y+1, x+1) == "Enemy1" || checkMapObject(y+1, x+1) == "Enemy2")) {
+								GameController.moveEntity(y,x,y+1,x+1);
+							}
+							
+							else if(checkMapObject(y+1, x) != "Empty" && checkMapObject(y, x-1) == "Empty" && (checkMapObject(y+1, x-1) == "Empty" || checkMapObject(y+1, x-1) == "Enemy1" || checkMapObject(y+1, x-1) == "Enemy2")) {
+								GameController.moveEntity(y,x,y+1,x-1);
+							}
+							
+							setMapEntityHasMoved(y, x, true);
+							
 						break;
-					
+						
+						case "Enemy1" : case "Enemy2" :
+							
+						break;
 					
 					}
 					

@@ -151,7 +151,7 @@ public class GameController {
 				
 				case "Enemy1" : case "Enemy2" :
 					System.out.println("------------------- YOU DIED !!! -------------------");
-					GameOver = true;
+					System.exit(0);
 				break;
 				
 				default:
@@ -184,7 +184,6 @@ public class GameController {
 		System.out.println(tempoType);
 		Level.setMapEntityType(newPositionY, newPositionX, tempoType);
 		Level.setMapEntityHasMoved(newPositionY, newPositionX, true);
-		//Level.MAP[Y][X].getHasMoved();
 		Level.setMapEntityType(actualPositionY, actualPositionX, "Empty");
 	}
 	
@@ -192,10 +191,12 @@ public class GameController {
 		while (GameOver != true) {
 			try {
 				Thread.sleep(TIME_SLEEP);
+				Level.updateMap();
+				
 			} catch (final InterruptedException ex) {
 				Thread.currentThread().interrupt();
 			}
-			Level.updateMap();
+			
 		}
 	}
 }

@@ -17,7 +17,7 @@ import view.GameWindow;
 
 public abstract class Main {
 	
-	private static int chosenLevel = 3;
+	private static int chosenLevel = 5;
 
 	
     /**
@@ -33,6 +33,7 @@ public abstract class Main {
     	Level.createMAP();
     	GameWindow gameWindow = new GameWindow();
     	GameController.gameLoop();
+    	
     	
     	
     }
