@@ -11,6 +11,11 @@ import org.junit.Test;
 import model.Level;
 import model.dao.EntityDAO;
 
+	/**
+	 * JUnit test of the Controller
+	 * @author Matthis MOYON
+	 * @version 2.0
+	 */
 public class GameControllerTest {
 
 	@BeforeClass
@@ -31,6 +36,9 @@ public class GameControllerTest {
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * Test class.
+	 */
 	@Test
 	public void test() {
 

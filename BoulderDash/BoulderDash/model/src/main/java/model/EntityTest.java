@@ -11,7 +11,7 @@ import org.junit.Test;
 	/**
 	 * JUnit test class for the entity objects.
 	 * @author Matthis
-	 *
+	 * @version 2.0
 	 */
 public class EntityTest {
 
@@ -37,6 +37,9 @@ public class EntityTest {
 	 */
 	private boolean HasMoved;
 	
+	/**
+	 * Constructor of the Entity test
+	 */
 	public EntityTest()
 	  {
 	    System.out.println("Création d'une entité avec des paramètres !");
@@ -68,7 +71,10 @@ public class EntityTest {
 	public void tearDown() throws Exception {
 		
 	}
-
+	
+	/**
+	 * Test class.
+	 */
 	@Test
 	public void test() {
 				

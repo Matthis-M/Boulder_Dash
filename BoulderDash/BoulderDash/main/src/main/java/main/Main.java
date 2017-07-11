@@ -33,9 +33,6 @@ public abstract class Main {
     	Level.createMAP();
     	GameWindow gameWindow = new GameWindow();
     	GameController.gameLoop();
-    	
-    	
-    	
     }
 }
 

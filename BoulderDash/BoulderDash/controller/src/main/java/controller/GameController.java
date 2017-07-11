@@ -186,6 +186,10 @@ public class GameController {
 		Level.setMapEntityType(actualPositionY, actualPositionX, "Empty");
 	}
 	
+	
+	/**
+	 * Method used to update the map at regular intervals (to make the boulders fall for example)
+	 */
 	public static void gameLoop() {
 		while (GameOver != true) {
 			try {

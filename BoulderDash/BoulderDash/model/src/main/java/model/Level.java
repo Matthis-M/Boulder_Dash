@@ -9,7 +9,6 @@ import controller.GameController;
  * @version 2.0
  */
 
-
 public class Level {
 	
 	/**
@@ -17,9 +16,19 @@ public class Level {
 	 */
 	private static Entity[][]MAP = new Entity[20][20];
 	
+	/**
+	 * String defining the type of the entity
+	 */
 	private static String EntityType;
 	
+	/**
+	 * Coordinate in X
+	 */
 	private static int X = 0;
+	
+	/**
+	 * Coordinate in Y
+	 */
 	private static int Y = 0;
 	
 	
@@ -133,6 +142,9 @@ public class Level {
 		MAP[Y][X].setHasMoved(HasMoved);
 	}
 	
+	/**
+	 * Method used to make the map update ; the boulders fall, the enemies move, ...
+	 */
 	public static void updateMap(){
 		
 		//System.out.println("updateWorking");
