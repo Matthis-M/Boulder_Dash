@@ -2,21 +2,26 @@ package view;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-/**
+import model.Entity;
+import model.Level;
+
+
+/**   
  * <h1>This class inherits from JPanel and constitute the elements that will be displayed on the window.</h1>
  *
  * @author Matthis MOYON
- * @version 1.0
+ * @version 2.0
  */
  
-public class GamePanel extends JPanel {
-	
-	
+public class GamePanel extends JPanel implements KeyListener {
+
 	/**
 	 * The ints X and Y in this class correspond to the coordinates of the elements in the table "MAP".
 	 */
@@ -29,30 +34,6 @@ public class GamePanel extends JPanel {
 	private String imagePath;
 	//private String backgroundImg;
 	
-	/**
-	 * This table is used to describe the components of the level. Each int is a type of object (Boulder, Dirt, Hero, ...).
-	 */
-	static int MAP[][] = {{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, 
-			{1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1},
-			{1,5,2,5,5,5,5,5,7,7,7,3,5,5,5,5,5,3,5,1},
-			{1,3,3,3,5,3,5,5,5,5,5,5,5,4,5,5,5,5,5,1},
-			{1,5,4,5,5,3,5,5,5,5,5,5,5,5,5,5,5,5,5,1},
-			{1,5,5,5,5,5,5,5,5,5,5,5,5,4,5,5,5,5,5,1},
-			{1,5,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1},
-			{1,5,5,3,5,5,5,5,4,5,5,5,5,5,5,5,5,4,5,1},
-			{1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1},
-			{1,5,5,5,5,5,5,5,5,5,5,3,5,5,5,5,5,5,5,1},
-			{1,5,5,3,3,5,5,5,5,5,5,5,5,5,4,5,5,5,5,1}, 
-			{1,5,5,5,4,5,5,5,5,5,4,5,5,5,5,5,5,5,5,1},
-			{1,5,5,5,5,5,5,3,5,5,5,5,5,5,5,5,5,5,5,1},
-			{1,5,5,5,5,5,5,5,5,5,5,5,4,5,5,5,5,5,5,1},
-			{1,5,3,5,5,5,5,4,5,5,5,5,5,5,5,5,5,5,5,1},
-			{1,5,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1},
-			{1,5,5,5,5,5,5,3,5,5,5,5,5,5,5,3,5,5,5,1},
-			{1,5,5,5,3,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1},
-			{1,5,5,5,5,5,5,5,5,5,5,5,5,3,5,5,5,5,5,1},
-			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}};
-	
 
 	/**
 	 * The paintComponent method from JComponent is here specialized to load all the images as specified on the map.
@@ -62,15 +43,14 @@ public class GamePanel extends JPanel {
 	 * The function g.drawimage then draw the matching image on the JPanel.
 	 */
 	public void paintComponent(Graphics g) {
+		
+		Entity viewMAP[][] = Level.getMAP();
+		
 		try {
 			
 			//For a background image
 			//Image backgroundImg = ImageIO.read(new File("backgroundImg.png"));
 		    //g.drawImage(backgroundImg, 0, 0, this.getWidth(), this.getHeight(), this);
-			
-			/**
-			 * The two loops "while()" are here used to browse all the table.
-			 */
 			
     			X = 0;
     			Y = 0;
@@ -79,53 +59,47 @@ public class GamePanel extends JPanel {
     		
     			while(X != 20) {
     				
-    				switch (MAP[Y][X]) {
-    				
-    				/**
-    				 * The "switch case" is here used to modify the imagePath attribute depending of the type of object.
-    				 */
-    					case 1 :
-    						imagePath = "Wall.png";
+    				switch (viewMAP[Y][X].getType()) {
+
+    					case "Wall" :
+    						imagePath = "D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/Wall.png";
     					break;
     					
-    					case 2 :
-    						imagePath = "Hero.png";
+    					case "Hero" :
+    						imagePath = "D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/Hero.png";
     					break;
     					
-    					case 3 :
-    						imagePath = "Boulder.png";
+    					case "Boulder" :
+    						imagePath = "D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/Boulder.png";
     					break;
     					
-    					case 4 :
-    						imagePath = "Diamond.png";
+    					case "Diamond" :
+    						imagePath = "D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/Diamond.png";
     					break;
     					
-    					case 5 :
-    						imagePath = "Dirt.png";
+    					case "Dirt" :
+    						imagePath = "D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/Dirt.png";
     					break;
     					
-    					case 6 :
-    						imagePath = "Enemy1.png";
+    					case "Enemy1" :
+    						imagePath = "D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/Enemy1.png";
     					break;
     					
-    					case 7 :
-    						imagePath = "EmptyBlock.png";
+    					case "Enemy2" :
+    						imagePath = "D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/Enemy2.png";
     					break;
     					
-    					case 8 :
-    						imagePath = "Enemy2.png";
+    					case "Empty" :
+    						imagePath = "D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/Empty.png";
     					break;
+
     					
     					default :
-    						imagePath = "Error.png";
+    						imagePath = "D:/Scolaire/Exia.CESI/Projets/06 - Boulder Dash/Boulder_Dash/BoulderDash/BoulderDash/Error.png";
     					break;
     					
     				}
-    				
-    				/**
-    				 * The two following methods are used to load the element depending of its path
-    				 * and draw it on the panel depending of its coordinates in the table. 
-    				 */
+
     				Image img = ImageIO.read(new File(imagePath));
     				g.drawImage(img, X*16, Y*16, this);
 
@@ -138,16 +112,70 @@ public class GamePanel extends JPanel {
     		}
 		} catch (IOException e){e.printStackTrace();}
 	}
-	
+
 	/**
-	 * Static method used to check the type of object placed at X and Y positions.
-	 * 
-	 * @param X is one coordinate of the object to check the type.
-	 * @param Y is the other coordinate of the object to check the type.
-	 * 
-	 * @return Return the type of the object.
+	 * Implementation of the KeyListener interface.
 	 */
-	public static int checkObject(int X, int Y) {
-		return MAP[X][Y];
+	@Override
+	public void keyPressed(KeyEvent k) {
+		int key = k.getKeyCode();
+		//Order userOrder;
+
+		switch (key) {
+		
+			case KeyEvent.VK_DOWN :
+				
+				//userOrder = (Order.DOWN);
+				//GameController.heroMove(userOrder);
+				//repaint();
+				System.out.println("bas");
+				break;
+				
+			case KeyEvent.VK_UP:
+
+				//userOrder = (Order.UP);
+				//GameController.heroMove(userOrder);
+				//repaint();
+				System.out.println("haut");
+				break;
+				
+			case KeyEvent.VK_RIGHT:
+
+				//userOrder = (Order.RIGHT);
+				//GameController.heroMove(userOrder);
+				//repaint();
+				System.out.println("droite");
+				break;
+				
+			case KeyEvent.VK_LEFT:
+				
+				//userOrder = (Order.LEFT);
+				//GameController.heroMove(userOrder);
+				//repaint();
+				System.out.println("gauche");
+				break;
+				
+			default:
+				//userOrder = null;
+			break;
+			
+			}
+	}
+
+	/**
+	 * Implementation of the KeyListener interface.
+	 */
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * Implementation of the KeyListener interface.
+	 */
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

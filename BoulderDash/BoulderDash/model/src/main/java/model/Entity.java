@@ -1,29 +1,60 @@
 package model;
 
 /**
- * <h1> This is the general abstract class from which inherit all the entities. <h1>
+ * <h1> The Entity class. <h1>
  * 
- * @author Group
- * @version 0.1
+ * @author Matthis MOYON
+ * @version 2.0
  */
 
-public abstract class Entity {
-	
-	/**
-	 * Defines the entity coordinate in X in the table.
-	 */
-	private int X;
-	
-	/**
-	 * Defines the entity coordinate in Y in the table.
-	 */
-	private int Y;
-	
-	/**
-	 * Defines the entity IdS.
-	 */
-	private int Id;
-	
-	
+public class Entity {
 
+	/**
+	 * Defines the entity type (Boulder, Dirt, ...).
+	 */
+	private String Type;
+	
+	/**
+	 * Defines if the entity has moved yet in the last update of the map.
+	 */
+	private boolean HasMoved;
+	
+	/**
+	 * Constructor of the entity.
+	 * @param entityType
+	 */
+	public Entity(String entityType)
+	{
+		Type = entityType;
+		HasMoved = false;
+	}
+	
+		  
+	/**
+	 * Getter of entity attribute "HasMoved"
+	 */
+	public boolean getHasMoved() {
+		return this.HasMoved;
+	}
+	
+	/**
+	 * Setter of entity attribute "HasMoved"
+	 */
+	public void setHasMoved(boolean newHasMoved) {
+		this.HasMoved = newHasMoved;
+	}
+	
+	/**
+	 * Getter of entity attribute "Type"
+	 */
+	public String getType() {
+		return this.Type;
+	}
+	
+	/**
+	 * Setter of entity attribute "Type"
+	 */
+	public void setType(String newType) {
+		this.Type = newType;
+	}
 }

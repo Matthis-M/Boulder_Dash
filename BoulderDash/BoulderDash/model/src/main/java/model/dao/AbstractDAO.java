@@ -19,7 +19,7 @@ public abstract class AbstractDAO {
      * @return the result set
      */
     protected static ResultSet executeQuery(final String query) {
-        return BoulderDashBDDConnector.getInstance().executeQuery(query);
+        return BoulderDashDBConnector.getInstance().executeQuery(query);
     }
 
     /**
@@ -30,7 +30,7 @@ public abstract class AbstractDAO {
      * @return the int
      */
     protected static int executeUpdate(final String query) {
-        return BoulderDashBDDConnector.getInstance().executeUpdate(query);
+        return BoulderDashDBConnector.getInstance().executeUpdate(query);
     }
 
     /**
@@ -41,6 +41,6 @@ public abstract class AbstractDAO {
      * @return the callable statement
      */
     protected static CallableStatement prepareCall(final String query) {
-        return BoulderDashBDDConnector.getInstance().prepareCall(query);
+        return BoulderDashDBConnector.getInstance().prepareCall(query);
     }
 }
