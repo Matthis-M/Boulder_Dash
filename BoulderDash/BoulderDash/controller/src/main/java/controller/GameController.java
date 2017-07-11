@@ -2,7 +2,6 @@
 
 package controller;
 
-import model.Entity;
 import model.Level;
 import view.Order;
 
@@ -19,8 +18,6 @@ public class GameController {
 	/**
 	 * A copy of the Map contained in model used to different tests.
 	 */
-	private static int X;
-	private static int Y;
 	
 	private static int TIME_SLEEP = 30;
 	
@@ -62,8 +59,8 @@ public class GameController {
 				y++;
 			}
 
-			System.out.println(entityCoordinates[0]);
-			System.out.println(entityCoordinates[1]);
+			//System.out.println(entityCoordinates[0]);
+			//System.out.println(entityCoordinates[1]);
 			return entityCoordinates;
 	}
 	
@@ -113,7 +110,7 @@ public class GameController {
 			switch (Level.checkMapObject(checkY, checkX)) {
 			
 				case "Wall" :
-					System.out.println("not implemented yet");
+					System.out.println("\nWhat do you expect ? Do you really think that you can dig through this wall !?\n");
 				break;
 				
 				case "Boulder" :
@@ -125,7 +122,7 @@ public class GameController {
 					
 					else if (userOrder == Order.LEFT) {
 						a = -1;
-					} else {System.out.println("ERROR");}
+					} else {System.out.println("The boulder is blocked.");}
 					
 					nextEntityX = checkX + a;
 					
@@ -133,15 +130,17 @@ public class GameController {
 						moveEntity(checkY, checkX, checkY, nextEntityX);
 						moveEntity(heroY, heroX, checkY, checkX);
 					}
-					System.out.println("Boulder Moved");
+					
 				break;
 				
 				case "Diamond" :
 					moveEntity(heroY, heroX, checkY, checkX);
 					diamondCounter--;
 					if(diamondCounter == 0) {
-						System.out.println("------------------- YOU WON !!! -------------------");
+						System.out.println("\n\n\n------------------- YOU WON !!! -------------------\n\n\n");
+						System.exit(0);
 					}
+					System.out.print("\n\nOnly " + (diamondCounter) + " diamonds left to win\n\n");
 					
 				break;
 				
@@ -150,12 +149,12 @@ public class GameController {
 				break;
 				
 				case "Enemy1" : case "Enemy2" :
-					System.out.println("------------------- YOU DIED !!! -------------------");
+					System.out.println("\n\n\n------------------- YOU DIED !!! -------------------\n\n\n");
 					System.exit(0);
 				break;
 				
 				default:
-					System.out.println("ERROR");
+					System.out.println("\nYou can't go that way.\n");
 				break;
 			}
 	}
@@ -181,7 +180,7 @@ public class GameController {
 		String tempoType;
 		
 		tempoType = Level.checkMapObject(actualPositionY, actualPositionX);
-		System.out.println(tempoType);
+		//System.out.println(tempoType);
 		Level.setMapEntityType(newPositionY, newPositionX, tempoType);
 		Level.setMapEntityHasMoved(newPositionY, newPositionX, true);
 		Level.setMapEntityType(actualPositionY, actualPositionX, "Empty");

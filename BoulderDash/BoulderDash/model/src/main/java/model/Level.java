@@ -1,9 +1,6 @@
 package model;
 
 import model.dao.EntityDAO;
-
-import javax.management.modelmbean.ModelMBean;
-
 import controller.GameController;
 /**
  * <h1> This class contain the Level map and other information as the number of diamonds needed to end it. <h1>
@@ -172,48 +169,11 @@ public class Level {
 						break;
 					
 					}
-					
-					
-					
-					
-					
-					
-					
-					
-					
-
 					x++;
 				}
 
 				x=0;
 				y++;
-			}
-		
-
-			
-			
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			}	
 	}
-	
-	
-	
-	
 }

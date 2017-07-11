@@ -129,7 +129,7 @@ public class GamePanel extends JPanel implements KeyListener {
 				userOrder = Order.DOWN;
 				GameController.heroMove(userOrder);
 				repaint();
-				System.out.println("bas");
+				//System.out.println("bas");
 				break;
 				
 			case KeyEvent.VK_UP:
@@ -137,7 +137,7 @@ public class GamePanel extends JPanel implements KeyListener {
 				userOrder = Order.UP;
 				GameController.heroMove(userOrder);
 				repaint();
-				System.out.println("haut");
+				//System.out.println("haut");
 				break;
 				
 			case KeyEvent.VK_RIGHT:
@@ -145,7 +145,7 @@ public class GamePanel extends JPanel implements KeyListener {
 				userOrder = Order.RIGHT;
 				GameController.heroMove(userOrder);
 				repaint();
-				System.out.println("droite");
+				//System.out.println("droite");
 				break;
 				
 			case KeyEvent.VK_LEFT:
@@ -153,7 +153,7 @@ public class GamePanel extends JPanel implements KeyListener {
 				userOrder = Order.LEFT;
 				GameController.heroMove(userOrder);
 				repaint();
-				System.out.println("gauche");
+				//System.out.println("gauche");
 				break;
 				
 			default:
